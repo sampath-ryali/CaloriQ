@@ -1,0 +1,71 @@
+name: caloriq
+description: CaloriQ - AI-powered food analysis with camera-first UX, nutrition tracking, and VQA chat.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  flutter_riverpod: ^2.4.9
+  
+  # Navigation
+  go_router: ^13.0.0
+  
+  # Camera
+  camera: ^0.10.5+9
+  
+  # Image Picker
+  image_picker: ^1.0.7
+  
+  # Permissions
+  permission_handler: ^11.3.0
+  
+  # UUID
+  uuid: ^4.2.2
+  
+  # Date formatting
+  intl: ^0.19.0
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+
+  # Secure Storage
+  flutter_secure_storage: ^9.2.4
+
+  # HTTP Client
+  http: ^1.2.1
+  
+  # Custom Fonts
+  google_fonts: ^6.1.0
+  
+  # Icons
+  cupertino_icons: ^1.0.6
+
+  # File paths
+  path_provider: ^2.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
+  # App Icon Generator
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/logo.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logo/logo.png"
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/logo/

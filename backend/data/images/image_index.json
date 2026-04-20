@@ -1,0 +1,106 @@
+[
+  {
+    "image_id": "1106d886976c4552833f22c4f7668b32",
+    "filename": "logo.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\1106d886976c4552833f22c4f7668b32.png",
+    "uploaded_at": "2026-04-19T15:53:23.582733+00:00",
+    "content_type": "image/png",
+    "user_id": "bb8c2bee-a5ca-4a9c-be68-da1eb895274a"
+  },
+  {
+    "image_id": "06b4c9c91cce4a32a6e5d81fd07ab4a6",
+    "filename": "logo.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\06b4c9c91cce4a32a6e5d81fd07ab4a6.png",
+    "uploaded_at": "2026-04-19T15:54:02.261923+00:00",
+    "content_type": "image/png",
+    "user_id": "37ce94d4-e8c9-404b-ab8e-b19cd0538c3f"
+  },
+  {
+    "image_id": "f567e6ab0d0f4793983b6efd99f2b2a6",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\f567e6ab0d0f4793983b6efd99f2b2a6.png",
+    "uploaded_at": "2026-04-19T15:55:31.739555+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "9f41b4b90f774216a34ac8ffc74799cd",
+    "filename": "CAP2271125857568437927.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\9f41b4b90f774216a34ac8ffc74799cd.jpg",
+    "uploaded_at": "2026-04-19T15:57:40.936187+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "1bf8652f-c449-4c8a-8ed1-84a98002618c"
+  },
+  {
+    "image_id": "5841a9772d83455fa7ee77f33096aaf6",
+    "filename": "CAP6622058567428365982.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\5841a9772d83455fa7ee77f33096aaf6.jpg",
+    "uploaded_at": "2026-04-19T16:17:36.578410+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "a57579fd66ad4584b6d31a895c289a82",
+    "filename": "CAP7398573226453745715.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\a57579fd66ad4584b6d31a895c289a82.jpg",
+    "uploaded_at": "2026-04-19T16:17:48.209670+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "74b0748fb6664e708e1102703eb7f775",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\74b0748fb6664e708e1102703eb7f775.png",
+    "uploaded_at": "2026-04-19T16:37:19.508986+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "c8513331932b43908eb22800cef22906",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\c8513331932b43908eb22800cef22906.png",
+    "uploaded_at": "2026-04-19T16:45:42.748298+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "0e27c5b9b761409298b4669f078ef045",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\0e27c5b9b761409298b4669f078ef045.png",
+    "uploaded_at": "2026-04-19T16:57:34.378180+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "4872c11232f34e6590b20616c009dcd3",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\4872c11232f34e6590b20616c009dcd3.png",
+    "uploaded_at": "2026-04-20T12:10:13.508989+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "27773b0e512d4494b7b08bbf6d451273",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\27773b0e512d4494b7b08bbf6d451273.png",
+    "uploaded_at": "2026-04-20T12:29:40.248206+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "ca63217b1b4749928c600868b4bf0c04",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\ca63217b1b4749928c600868b4bf0c04.png",
+    "uploaded_at": "2026-04-20T12:50:05.233680+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "276129b5b6774b66b79065f091508a00",
+    "filename": "1000037699.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\276129b5b6774b66b79065f091508a00.jpg",
+    "uploaded_at": "2026-04-20T12:53:52.658274+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "1bf8652f-c449-4c8a-8ed1-84a98002618c"
+  }
+]

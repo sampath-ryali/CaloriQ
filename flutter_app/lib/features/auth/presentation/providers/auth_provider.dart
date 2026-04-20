@@ -1,0 +1,208 @@
+import 'dart:convert';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../domain/models/user.dart';
+
+const _authBaseUrl = String.fromEnvironment(
+  'API_BASE_URL',
+  defaultValue: 'http://10.0.2.2:5000/api',
+);
+
+class AuthState {
+  final User? user;
+  final String? token;
+  final bool isLoading;
+  final String? error;
+  final bool isInitialized;
+
+  AuthState({
+    this.user,
+    this.token,
+    this.isLoading = false,
+    this.error,
+    this.isInitialized = false,
+  });
+
+  bool get isLoggedIn =>
+    user != null && (token?.isNotEmpty ?? false);
+
+  AuthState copyWith({
+    User? user,
+    String? token,
+    bool? isLoading,
+    String? error,
+    bool? isInitialized,
+    bool clearUser = false,
+  }) {
+    return AuthState(
+      user: clearUser ? null : (user ?? this.user),
+      token: clearUser ? null : (token ?? this.token),
+      isLoading: isLoading ?? this.isLoading,
+      error: error,
+      isInitialized: isInitialized ?? this.isInitialized,
+    );
+  }
+}
+
+class AuthNotifier extends StateNotifier<AuthState> {
+  AuthNotifier() : super(AuthState()) {
+    _initialize();
+  }
+
+  Future<void> _initialize() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+    
+    if (isLoggedIn) {
+      final userId = prefs.getString('userId') ?? '1';
+      final userName = prefs.getString('userName') ?? 'User';
+      final userEmail = prefs.getString('userEmail') ?? 'user@example.com';
+      final token = prefs.getString('token');
+      
+      final user = User(
+        id: userId,
+        name: userName,
+        email: userEmail,
+      );
+      
+      state = state.copyWith(user: user, token: token, isInitialized: true);
+    } else {
+      state = state.copyWith(isInitialized: true);
+    }
+  }
+
+  Future<bool> login(String email, String password) async {
+    if (email.isEmpty || password.isEmpty) {
+      state = state.copyWith(error: 'Please fill in all fields');
+      return false;
+    }
+
+    if (!email.contains('@')) {
+      state = state.copyWith(error: 'Please enter a valid email');
+      return false;
+    }
+
+    state = state.copyWith(isLoading: true, error: null);
+
+    try {
+      final response = await http.post(
+        Uri.parse('$_authBaseUrl/auth/login'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'username': email,
+          'password': password,
+        }),
+      );
+
+      final data = jsonDecode(response.body);
+
+      if (response.statusCode == 200) {
+        final accessToken = data['access_token'];
+        final backendUser = data['user'];
+        final backendName = (backendUser['name'] ?? backendUser['full_name'] ?? backendUser['username'] ?? '').toString();
+        
+        final user = User(
+          id: backendUser['id'].toString(),
+          name: backendName,
+          email: email,
+        );
+
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('isLoggedIn', true);
+        await prefs.setString('userId', user.id);
+        await prefs.setString('userName', user.name);
+        await prefs.setString('userEmail', user.email);
+        await prefs.setString('token', accessToken);
+
+        state = state.copyWith(user: user, token: accessToken, isLoading: false);
+        return true;
+      } else {
+        state = state.copyWith(
+          isLoading: false, 
+          error: data['error_message'] ?? data['message'] ?? 'Login failed',
+        );
+        return false;
+      }
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: 'Connection error: $e');
+      return false;
+    }
+  }
+
+  Future<bool> signup(String name, String email, String password) async {
+    if (name.isEmpty || email.isEmpty || password.isEmpty) {
+      state = state.copyWith(error: 'Please fill in all fields');
+      return false;
+    }
+
+    if (!email.contains('@')) {
+      state = state.copyWith(error: 'Please enter a valid email');
+      return false;
+    }
+
+    if (password.length < 6) {
+      state = state.copyWith(error: 'Password must be at least 6 characters');
+      return false;
+    }
+
+    state = state.copyWith(isLoading: true, error: null);
+
+    try {
+      final response = await http.post(
+        Uri.parse('$_authBaseUrl/auth/register'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'username': email,
+          'full_name': name,
+          'password': password,
+        }),
+      );
+
+      final data = jsonDecode(response.body);
+
+      if (response.statusCode == 201) {
+        final accessToken = data['access_token'];
+        final backendUser = data['user'];
+        final backendName = (backendUser['name'] ?? backendUser['full_name'] ?? name).toString();
+        
+        final user = User(
+          id: backendUser['id'].toString(),
+          name: backendName,
+          email: email,
+        );
+
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('isLoggedIn', true);
+        await prefs.setString('userId', user.id);
+        await prefs.setString('userName', user.name);
+        await prefs.setString('userEmail', user.email);
+        await prefs.setString('token', accessToken);
+
+        state = state.copyWith(user: user, token: accessToken, isLoading: false);
+        return true;
+      } else {
+        state = state.copyWith(
+          isLoading: false, 
+          error: data['error_message'] ?? data['message'] ?? 'Signup failed',
+        );
+        return false;
+      }
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: 'Connection error: $e');
+      return false;
+    }
+  }
+
+  Future<void> logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    
+    state = state.copyWith(clearUser: true);
+  }
+}
+
+final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
+  return AuthNotifier();
+});
