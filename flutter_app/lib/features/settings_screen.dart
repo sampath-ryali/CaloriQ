@@ -1,14 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:caloriq/core/network/api_client.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../core/theme/color_schemes.dart';
 
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  late final TextEditingController _baseUrlController;
+
+  @override
+  void initState() {
+    super.initState();
+    _baseUrlController = TextEditingController(text: ApiConfig.baseUrl);
+  }
+
+  @override
+  void dispose() {
+    _baseUrlController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveBaseUrl() async {
+    final value = _baseUrlController.text.trim();
+    final uri = Uri.tryParse(value);
+    final isValid = uri != null && uri.hasScheme && uri.hasAuthority;
+
+    if (!isValid) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Enter a valid URL (example: http://192.168.1.10:5000/api)')),
+      );
+      return;
+    }
+
+    await ApiConfig.setBaseUrl(value);
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      _baseUrlController.text = ApiConfig.baseUrl;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Backend URL saved: ${ApiConfig.baseUrl}')),
+    );
+  }
+
+  Future<void> _resetBaseUrl() async {
+    await ApiConfig.clearOverride();
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      _baseUrlController.text = ApiConfig.baseUrl;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Using default URL: ${ApiConfig.defaultBaseUrl}')),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final themeSettings = ref.watch(themeProvider);
 
     return Scaffold(
@@ -25,6 +86,59 @@ class SettingsScreen extends ConsumerWidget {
           Text(
             'Appearance',
             style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 16),
+
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.wifi),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Backend URL',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _baseUrlController,
+                    keyboardType: TextInputType.url,
+                    decoration: const InputDecoration(
+                      labelText: 'API Base URL',
+                      hintText: 'http://192.168.1.10:5000/api',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    ApiConfig.hasOverride
+                        ? 'Custom URL active'
+                        : 'Using compile-time default: ${ApiConfig.defaultBaseUrl}',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      FilledButton(
+                        onPressed: _saveBaseUrl,
+                        child: const Text('Save URL'),
+                      ),
+                      const SizedBox(width: 8),
+                      OutlinedButton(
+                        onPressed: _resetBaseUrl,
+                        child: const Text('Use Default'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           const SizedBox(height: 16),
 

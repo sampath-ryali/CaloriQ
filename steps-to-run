@@ -1,0 +1,85 @@
+CaloriQ - Steps To Run Locally
+
+1) Prerequisites
+- Python 3.11+ installed
+- Flutter SDK installed and on PATH
+- Android Studio SDK / platform tools installed (adb)
+- Ollama installed
+- Git (optional)
+
+2) Start Ollama and pull Qwen model (one-time)
+- ollama pull qwen2.5:3b
+- Optional test:
+  ollama run qwen2.5:3b "Reply with exactly: QWEN_OK"
+
+3) Backend setup
+- Open terminal in project root
+- cd backend
+- Create venv if needed:
+  python -m venv .venv
+- Activate venv (PowerShell):
+  .\.venv\Scripts\Activate.ps1
+- Install dependencies:
+  pip install -r requirements.txt
+
+4) Backend environment
+Create backend/.env with:
+- ENABLE_QWEN=true
+- QWEN_TIMEOUT_SEC=15
+- OLLAMA_BASE_URL=http://127.0.0.1:11434
+- QWEN_MODEL=qwen2.5:3b
+- OCR_PRIMARY_ENGINE=easyocr
+
+Optional PaddleOCR setup:
+- pip install paddleocr paddlepaddle
+- To make PaddleOCR primary, set:
+  OCR_PRIMARY_ENGINE=paddleocr
+- Supported values:
+  easyocr | pytesseract | paddleocr | auto
+
+5) Run backend
+- In backend folder with venv active:
+  python app.py
+- Backend should be available at:
+  http://127.0.0.1:5000
+- Health check:
+  http://127.0.0.1:5000/health
+
+6) Run Flutter app with USB (recommended for development)
+- Open new terminal
+- cd flutter_app
+- flutter pub get
+- Connect phone via USB
+- adb devices
+- Map phone localhost to laptop backend:
+  adb reverse tcp:5000 tcp:5000
+- Run app:
+  flutter run -d <DEVICE_ID> --dart-define=API_BASE_URL=http://127.0.0.1:5000/api
+
+7) Run app over Wi-Fi (no USB)
+- Connect laptop and phone to same Wi-Fi
+- Find laptop IP (example 192.168.1.6):
+  ipconfig
+- Ensure backend is running on laptop
+- Allow firewall for TCP 5000 if needed
+- Run Flutter directly with Wi-Fi backend URL:
+  flutter run -d <DEVICE_ID> --dart-define=API_BASE_URL=http://<LAPTOP_IP>:5000/api
+
+8) Build APK for install on phone
+- cd flutter_app
+- flutter clean
+- flutter pub get
+- flutter build apk --release --dart-define=API_BASE_URL=http://<LAPTOP_IP>:5000/api
+- APK output:
+  build/app/outputs/flutter-apk/app-release.apk
+
+9) Install APK on phone
+- Transfer app-release.apk to phone
+- Open APK and allow install from unknown source if prompted
+- Keep backend + Ollama running on laptop while using app
+
+10) Quick troubleshooting
+- If you see "Source: unknown": update app to latest build and ensure backend is reachable
+- If /ask-question returns 422: image OCR failed, retake a clearer nutrition-label photo
+- If phone cannot connect over Wi-Fi: verify same network, IP, firewall, and backend running
+- If Flutter loses device connection: run adb devices, reconnect USB, rerun flutter command

@@ -2,12 +2,8 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import '../shared/food_item.dart';
+import '../core/network/api_client.dart';
 import 'auth/presentation/providers/auth_provider.dart';
-
-const _apiBaseUrl = String.fromEnvironment(
-  'API_BASE_URL',
-  defaultValue: 'http://10.0.2.2:5000/api',
-);
 
 class FoodState {
   final FoodItem? food;
@@ -62,7 +58,7 @@ class FoodNotifier extends StateNotifier<FoodState> {
 
       final request = http.MultipartRequest(
         'POST',
-        Uri.parse('$_apiBaseUrl/upload-image'),
+        Uri.parse('${ApiConfig.baseUrl}/upload-image'),
       );
 
       request.headers['Authorization'] = 'Bearer $token';

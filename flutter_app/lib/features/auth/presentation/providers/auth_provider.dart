@@ -1,14 +1,12 @@
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:caloriq/core/network/api_client.dart';
 import '../../domain/models/user.dart';
-
-const _authBaseUrl = String.fromEnvironment(
-  'API_BASE_URL',
-  defaultValue: 'http://10.0.2.2:5000/api',
-);
 
 class AuthState {
   final User? user;
@@ -87,13 +85,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = state.copyWith(isLoading: true, error: null);
 
     try {
-      final response = await http.post(
-        Uri.parse('$_authBaseUrl/auth/login'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
+      final response = await _postWithAutoDiscoveryRetry(
+        '/auth/login',
+        {
           'username': email,
           'password': password,
-        }),
+        },
       );
 
       final data = jsonDecode(response.body);
@@ -150,14 +147,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = state.copyWith(isLoading: true, error: null);
 
     try {
-      final response = await http.post(
-        Uri.parse('$_authBaseUrl/auth/register'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
+      final response = await _postWithAutoDiscoveryRetry(
+        '/auth/register',
+        {
           'username': email,
           'full_name': name,
           'password': password,
-        }),
+        },
       );
 
       final data = jsonDecode(response.body);
@@ -200,6 +196,29 @@ class AuthNotifier extends StateNotifier<AuthState> {
     await prefs.clear();
     
     state = state.copyWith(clearUser: true);
+  }
+
+  Future<http.Response> _postWithAutoDiscoveryRetry(
+    String path,
+    Map<String, dynamic> payload,
+  ) async {
+    Future<http.Response> send() {
+      return http.post(
+        Uri.parse('${ApiConfig.baseUrl}$path'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(payload),
+      );
+    }
+
+    try {
+      return await send();
+    } on SocketException {
+      await ApiConfig.discoverAndSetReachableBaseUrl(forceRefresh: true);
+      return send();
+    } on TimeoutException {
+      await ApiConfig.discoverAndSetReachableBaseUrl(forceRefresh: true);
+      return send();
+    }
   }
 }
 

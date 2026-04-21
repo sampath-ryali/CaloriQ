@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:caloriq/core/network/api_client.dart';
 import '../providers/auth_provider.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -118,6 +119,24 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   textAlign: TextAlign.center,
                 ),
               ],
+
+              const SizedBox(height: 12),
+              ValueListenableBuilder<String?>(
+                valueListenable: ApiConfig.discoveryStatus,
+                builder: (context, status, _) {
+                  if (status == null || status.isEmpty) {
+                    return const SizedBox.shrink();
+                  }
+
+                  return Text(
+                    status,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.amber.shade200,
+                    ),
+                    textAlign: TextAlign.center,
+                  );
+                },
+              ),
               
               const SizedBox(height: 32),
               

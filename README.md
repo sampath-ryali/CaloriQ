@@ -34,6 +34,7 @@ A high-performance Flutter app built with **Riverpod** for state management and 
 A Flask-based microservice that handles the "heavy lifting."
 - **Image Preprocessing**: Uses OpenCV to resize, grayscale, and denoise images for better OCR accuracy.
 - **OCR Engine**: Primarily uses **EasyOCR** with a fallback to **PyTesseract** to extract text from labels.
+    - Optional: set `OCR_PRIMARY_ENGINE=paddleocr` to use PaddleOCR as primary engine.
 - **Intelligence**:
     - **Nutrition Parser**: Regex-based extraction of Calories, Protein, Fat, Carbs, and Ingredients.
     - **Qwen VQA Engine**: Integrated with the **Qwen 2.5 LLM** (via Ollama) to answer complex nutrition questions.
@@ -53,7 +54,11 @@ The Research & Development (R&D) hub where the intelligence was born.
 ```powershell
 cd backend
 pip install -r requirements.txt
+# Optional PaddleOCR support (CPU):
+# pip install paddleocr paddlepaddle
 # Create a .env file with ENABLE_QWEN=true
+# Optional OCR engine switch:
+# OCR_PRIMARY_ENGINE=easyocr|pytesseract|paddleocr|auto
 python app.py
 ```
 
