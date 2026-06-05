@@ -49,6 +49,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
     _initialize();
   }
 
+  void clearError() {
+    if (state.error == null) {
+      return;
+    }
+    state = state.copyWith(error: null);
+  }
+
   Future<void> _initialize() async {
     final prefs = await SharedPreferences.getInstance();
     final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
@@ -116,9 +123,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = state.copyWith(user: user, token: accessToken, isLoading: false);
         return true;
       } else {
+        final backendError = data['error'];
+        final backendErrorMessage = backendError is Map<String, dynamic>
+            ? backendError['message']
+            : null;
         state = state.copyWith(
           isLoading: false, 
-          error: data['error_message'] ?? data['message'] ?? 'Login failed',
+          error: backendErrorMessage ?? data['error_message'] ?? data['message'] ?? 'Login failed',
         );
         return false;
       }
@@ -139,8 +150,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
       return false;
     }
 
-    if (password.length < 6) {
-      state = state.copyWith(error: 'Password must be at least 6 characters');
+    if (password.length < 8) {
+      state = state.copyWith(error: 'Password length should be atleast 8 characters');
       return false;
     }
 
@@ -179,9 +190,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = state.copyWith(user: user, token: accessToken, isLoading: false);
         return true;
       } else {
+        final backendError = data['error'];
+        final backendErrorMessage = backendError is Map<String, dynamic>
+            ? backendError['message']
+            : null;
         state = state.copyWith(
           isLoading: false, 
-          error: data['error_message'] ?? data['message'] ?? 'Signup failed',
+          error: backendErrorMessage ?? data['error_message'] ?? data['message'] ?? 'Signup failed',
         );
         return false;
       }

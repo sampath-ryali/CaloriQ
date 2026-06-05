@@ -14,17 +14,20 @@ import '../../features/health_stats_screen.dart';
 import '../../features/settings_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
-  final authState = ref.watch(authProvider);
+  final authFlags = ref.watch(
+    authProvider.select((state) => (state.isInitialized, state.isLoggedIn)),
+  );
+  final isInitialized = authFlags.$1;
+  final isLoggedIn = authFlags.$2;
   
   return GoRouter(
     initialLocation: '/',
     redirect: (context, state) {
       // Wait for auth initialization
-      if (!authState.isInitialized) {
+      if (!isInitialized) {
         return null;
       }
 
-      final isLoggedIn = authState.isLoggedIn;
       final isGoingToLogin = state.matchedLocation == '/login';
       final isGoingToSignup = state.matchedLocation == '/signup';
 

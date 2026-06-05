@@ -102,5 +102,269 @@
     "uploaded_at": "2026-04-20T12:53:52.658274+00:00",
     "content_type": "image/jpeg",
     "user_id": "1bf8652f-c449-4c8a-8ed1-84a98002618c"
+  },
+  {
+    "image_id": "1420f863649d4b8294e4e0d9e7fcf9c8",
+    "filename": "1000044940.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\1420f863649d4b8294e4e0d9e7fcf9c8.png",
+    "uploaded_at": "2026-04-21T09:04:46.053867+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "ff3bfe9a239b439baf5b1487c9ccdf74",
+    "filename": "1000044940.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\ff3bfe9a239b439baf5b1487c9ccdf74.png",
+    "uploaded_at": "2026-04-21T09:11:56.956916+00:00",
+    "content_type": "image/png",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "50ad501a5e664ca2a89920a47b0fd712",
+    "filename": "1000043644.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\50ad501a5e664ca2a89920a47b0fd712.png",
+    "uploaded_at": "2026-04-21T09:22:06.054975+00:00",
+    "content_type": "image/png",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "fb97d5e31b1442e480fcd0e8b71efa5a",
+    "filename": "1000043645.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\fb97d5e31b1442e480fcd0e8b71efa5a.jpg",
+    "uploaded_at": "2026-04-21T09:23:19.589532+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "b6079e1807344309b6c1dd357a7b3c60",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\b6079e1807344309b6c1dd357a7b3c60.png",
+    "uploaded_at": "2026-04-21T09:51:18.327231+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "cce4d0e6c127441aba2094b91f720a9a",
+    "filename": "1000088859.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\cce4d0e6c127441aba2094b91f720a9a.png",
+    "uploaded_at": "2026-04-21T15:02:23.688494+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "8fb051c8e7a6481bb35be289670a23de",
+    "filename": "1000089293.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\8fb051c8e7a6481bb35be289670a23de.jpg",
+    "uploaded_at": "2026-04-21T15:58:23.586679+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "2edfc68f70d24864a148d0c3ae577bbd",
+    "filename": "CAP6058813462560011215.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\2edfc68f70d24864a148d0c3ae577bbd.jpg",
+    "uploaded_at": "2026-04-22T05:00:14.041964+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "fc4227513b444802a2840b8dbf3a2505",
+    "filename": "CAP8564733924069287823.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\fc4227513b444802a2840b8dbf3a2505.jpg",
+    "uploaded_at": "2026-04-22T06:44:18.692300+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "d17a2255478542c0b89d40a87907dc73",
+    "filename": "1000045212.webp",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\d17a2255478542c0b89d40a87907dc73.webp",
+    "uploaded_at": "2026-04-22T08:39:32.589886+00:00",
+    "content_type": "image/webp",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "a962c58f0868489abdc5410fe146a43d",
+    "filename": "1000045212.webp",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\a962c58f0868489abdc5410fe146a43d.webp",
+    "uploaded_at": "2026-04-22T08:43:04.517229+00:00",
+    "content_type": "image/webp",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "237d87cbf2d44820a2e766d20a02a9b2",
+    "filename": "CAP3496007962845785153.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\237d87cbf2d44820a2e766d20a02a9b2.jpg",
+    "uploaded_at": "2026-04-22T09:26:44.358851+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "4ecb8e9ebdb1448193e68ade6f05dc43",
+    "filename": "CAP546836533010966464.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\4ecb8e9ebdb1448193e68ade6f05dc43.jpg",
+    "uploaded_at": "2026-04-22T09:52:48.390626+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "6c82878fb5984a0c8c34d218a1f083d8",
+    "filename": "1000089293.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\6c82878fb5984a0c8c34d218a1f083d8.jpg",
+    "uploaded_at": "2026-04-22T14:46:33.932666+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "6fd5a2ad582e4c3eaf6246d00ddf7c6f",
+    "filename": "CAP2590937561099651649.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\6fd5a2ad582e4c3eaf6246d00ddf7c6f.jpg",
+    "uploaded_at": "2026-04-24T07:19:32.128777+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "f3f4e8db-02ae-477e-9da2-35e88c35f97a"
+  },
+  {
+    "image_id": "30f7b28ee4ef4f3796269b03d11ea552",
+    "filename": "1000042628.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\30f7b28ee4ef4f3796269b03d11ea552.jpg",
+    "uploaded_at": "2026-04-24T07:20:17.970759+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "f3f4e8db-02ae-477e-9da2-35e88c35f97a"
+  },
+  {
+    "image_id": "7113d98193e849d2bafda829b4d348c2",
+    "filename": "1000042715.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\7113d98193e849d2bafda829b4d348c2.jpg",
+    "uploaded_at": "2026-04-24T07:21:28.990201+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "f3f4e8db-02ae-477e-9da2-35e88c35f97a"
+  },
+  {
+    "image_id": "74846824feb14968af2bb90449fadf8e",
+    "filename": "1000042717.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\74846824feb14968af2bb90449fadf8e.jpg",
+    "uploaded_at": "2026-04-24T07:45:12.099328+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e2834e62-c4d9-4a55-a2bd-bd95d69ca067"
+  },
+  {
+    "image_id": "e3634fc2ba8649b28a48f0c71e2e5d19",
+    "filename": "1000042717.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\e3634fc2ba8649b28a48f0c71e2e5d19.jpg",
+    "uploaded_at": "2026-04-24T07:46:50.687555+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e2834e62-c4d9-4a55-a2bd-bd95d69ca067"
+  },
+  {
+    "image_id": "1b5f95440ece47bca84bebec9657bca9",
+    "filename": "1000042717.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\1b5f95440ece47bca84bebec9657bca9.jpg",
+    "uploaded_at": "2026-04-24T07:47:47.513934+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "f3f4e8db-02ae-477e-9da2-35e88c35f97a"
+  },
+  {
+    "image_id": "6f80cba232f74cd099fa5fc3a0ac05fd",
+    "filename": "1000045212.webp",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\6f80cba232f74cd099fa5fc3a0ac05fd.webp",
+    "uploaded_at": "2026-04-24T09:16:08.978132+00:00",
+    "content_type": "image/webp",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "11a7594f723f40569961805e9d55f1fd",
+    "filename": "1000045212.webp",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\11a7594f723f40569961805e9d55f1fd.webp",
+    "uploaded_at": "2026-04-24T09:16:32.512572+00:00",
+    "content_type": "image/webp",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "ea46b87a5cb545ada5d680942c31478a",
+    "filename": "1000045414.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\ea46b87a5cb545ada5d680942c31478a.jpg",
+    "uploaded_at": "2026-04-25T04:37:42.160381+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "072849aea5c74ee3bece1e6a9f6d8e5f",
+    "filename": "1000043645.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\072849aea5c74ee3bece1e6a9f6d8e5f.jpg",
+    "uploaded_at": "2026-04-25T04:45:05.433000+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "18addeed-638a-4492-8594-af1a72cd9c8b"
+  },
+  {
+    "image_id": "a56104bcbea4430d800263bb73013822",
+    "filename": "1000045407.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\a56104bcbea4430d800263bb73013822.jpg",
+    "uploaded_at": "2026-04-25T04:47:03.809006+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "f20241c8811f4557918f70b17cdc735d",
+    "filename": "1000045407.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\f20241c8811f4557918f70b17cdc735d.jpg",
+    "uploaded_at": "2026-04-25T04:49:17.097411+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "da53c667c7ba480b9e8e95f7ad87c2fe",
+    "filename": "1000043645.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\da53c667c7ba480b9e8e95f7ad87c2fe.jpg",
+    "uploaded_at": "2026-04-25T06:45:07.414522+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "8a348bf4-1b39-40f5-86d6-e2928a449ea3"
+  },
+  {
+    "image_id": "925087afc86141628d470c73ce71b0cf",
+    "filename": "CAP986075722598768029.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\925087afc86141628d470c73ce71b0cf.jpg",
+    "uploaded_at": "2026-04-25T08:46:59.636146+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "ac0b443881744072a09569b9cce22034",
+    "filename": "1000045407.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\ac0b443881744072a09569b9cce22034.jpg",
+    "uploaded_at": "2026-04-25T09:01:14.715226+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "e21487a9-2558-4e55-ab95-83731b43e2fb"
+  },
+  {
+    "image_id": "6b3690d601394e99b7ca60e4051d1948",
+    "filename": "1000043645.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\6b3690d601394e99b7ca60e4051d1948.jpg",
+    "uploaded_at": "2026-04-25T09:04:04.806135+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "97952b41c28443c8bd05f0a5ac0f225c",
+    "filename": "1000043645.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\97952b41c28443c8bd05f0a5ac0f225c.jpg",
+    "uploaded_at": "2026-04-25T09:57:19.512239+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "ea4a10cf33f14774acf20a8cd94dac9c",
+    "filename": "1000043644.png",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\ea4a10cf33f14774acf20a8cd94dac9c.png",
+    "uploaded_at": "2026-04-25T09:57:46.621511+00:00",
+    "content_type": "image/png",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "d453a590c8734d17908e1a71fa5bb359",
+    "filename": "CAP1969427570268804679.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\d453a590c8734d17908e1a71fa5bb359.jpg",
+    "uploaded_at": "2026-04-25T10:30:15.143668+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
   }
 ]
