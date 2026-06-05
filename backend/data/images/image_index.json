@@ -366,5 +366,21 @@
     "uploaded_at": "2026-04-25T10:30:15.143668+00:00",
     "content_type": "image/jpeg",
     "user_id": "720e264b-ce79-4edc-ab2d-49ca7c2fe293"
+  },
+  {
+    "image_id": "dbd6e267794346e0a4b99f2cf7cd674c",
+    "filename": "1000089293.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\dbd6e267794346e0a4b99f2cf7cd674c.jpg",
+    "uploaded_at": "2026-06-05T07:39:26.192424+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "14ddf0dc-2e0b-41c5-bdfc-6567eb1045e3"
+  },
+  {
+    "image_id": "15d4672c047f4d6fafa50b16fdc2d964",
+    "filename": "1000092307.jpg",
+    "stored_path": "C:\\Users\\Karth\\Documents\\projects\\backend\\data\\images\\15d4672c047f4d6fafa50b16fdc2d964.jpg",
+    "uploaded_at": "2026-06-05T07:39:48.562880+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "14ddf0dc-2e0b-41c5-bdfc-6567eb1045e3"
   }
 ]
