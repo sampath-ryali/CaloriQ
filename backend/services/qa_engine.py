@@ -366,7 +366,7 @@ def answer_question(profile: NutritionProfile, question: str) -> QaResponse:
     base_insights = _summarize_nutrition(profile)
     dynamic_insights: list[str] = []
     question_type = _classify_question_type(normalized_question)
-    strict_qwen = os.getenv("QWEN_STRICT", "true").lower() == "true"
+    strict_qwen = os.getenv("QWEN_STRICT", "false").lower() == "true"
     direct_fact_question = question_type == "extraction" or _is_nutrient_summary_question(normalized_question)
 
     wants_health_context = any(
@@ -383,8 +383,8 @@ def answer_question(profile: NutritionProfile, question: str) -> QaResponse:
     )
 
     enable_llm = (
-        os.getenv("ENABLE_LLM", "false").lower() == "true" or
-        os.getenv("ENABLE_QWEN", "false").lower() == "true"
+        os.getenv("ENABLE_LLM", "true").lower() == "true" or
+        os.getenv("ENABLE_QWEN", "true").lower() == "true"
     )
     llm_provider = os.getenv("LLM_PROVIDER", "qwen").lower().strip()
 
