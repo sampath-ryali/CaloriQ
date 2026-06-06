@@ -53,6 +53,12 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => context.push('/settings'),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

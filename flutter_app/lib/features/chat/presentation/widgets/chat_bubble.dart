@@ -70,10 +70,20 @@ class ChatBubble extends StatelessWidget {
                           topLeft: isUser ? const Radius.circular(18) : const Radius.circular(4),
                           topRight: isUser ? const Radius.circular(4) : const Radius.circular(18),
                         ),
-                        child: Image.file(
-                          File(message.imagePath!),
-                          fit: BoxFit.cover,
-                        ),
+                       child: message.imagePath!.startsWith('http')
+                            ? Image.network(
+                                message.imagePath!,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) => const Icon(
+                                  Icons.broken_image,
+                                  size: 48,
+                                  color: Colors.grey,
+                                ),
+                              )
+                            : Image.file(
+                                File(message.imagePath!),
+                                fit: BoxFit.cover,
+                              ),
                       ),
                     ),
                   )

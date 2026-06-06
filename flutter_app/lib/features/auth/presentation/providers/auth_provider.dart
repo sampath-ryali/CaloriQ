@@ -220,7 +220,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
     Future<http.Response> send() {
       return http.post(
         Uri.parse('${ApiConfig.baseUrl}$path'),
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'bypass-tunnel-reminder': 'true',
+        },
         body: jsonEncode(payload),
       );
     }

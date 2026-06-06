@@ -14,6 +14,7 @@ class AnalysisResult:
     answer: str
     confidence: float
     insights: list[str] = field(default_factory=list)
+    question_type: str = "extraction"
     detected_intent: str = "general"
     source: str = "rule_based"
     health_score: int | None = None

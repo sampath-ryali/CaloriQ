@@ -80,10 +80,13 @@ class AnalysisService:
             confidence = qa_response.confidence
             answer_source = qa_response.source
             insights = qa_response.insights
+            question_type = qa_response.question_type
             detected_intent = qa_response.detected_intent
             health_score = qa_response.health_score
             health_label = qa_response.health_label
             diet_recommendations = qa_response.diet_recommendations
+        if vlm_result is not None:
+            question_type = "reasoning"
 
         localized_answer = translate_text(qa_answer, language)
         localized_insights = translate_list(insights, language)
@@ -94,6 +97,7 @@ class AnalysisService:
             answer=localized_answer,
             confidence=confidence,
             insights=localized_insights,
+            question_type=question_type,
             detected_intent=detected_intent,
             source=answer_source,
             health_score=health_score,

@@ -62,6 +62,7 @@ class FoodNotifier extends StateNotifier<FoodState> {
       );
 
       request.headers['Authorization'] = 'Bearer $token';
+      request.headers['bypass-tunnel-reminder'] = 'true';
       request.files.add(await http.MultipartFile.fromPath('image', imagePath));
 
       final streamedResponse = await request.send().timeout(const Duration(seconds: 30));

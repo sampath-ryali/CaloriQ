@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../core/theme/color_schemes.dart';
+import '../../core/network/api_client.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -129,6 +130,67 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         },
                       ),
                     ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // Custom API Settings
+          Text(
+            'Server Settings',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.dns),
+                      const SizedBox(width: 12),
+                      Text(
+                        'API Base URL',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Current URL: ${ApiConfig.baseUrl}',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Enter new API endpoint URL',
+                      hintText: 'https://xxxx.loca.lt/api',
+                      border: OutlineInputBorder(),
+                    ),
+                    onSubmitted: (value) async {
+                      if (value.trim().isNotEmpty) {
+                        await ApiConfig.setBaseUrl(value.trim());
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('API URL updated to: ${ApiConfig.baseUrl}')),
+                        );
+                        setState(() {});
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () async {
+                      await ApiConfig.clearOverride();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Reset to default URL: ${ApiConfig.baseUrl}')),
+                      );
+                      setState(() {});
+                    },
+                    child: const Text('Reset to Default'),
                   ),
                 ],
               ),

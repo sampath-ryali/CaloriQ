@@ -24,10 +24,20 @@ class ImageViewerScreen extends StatelessWidget {
           panEnabled: true,
           minScale: 0.5,
           maxScale: 4.0,
-          child: Image.file(
-            File(imagePath),
-            fit: BoxFit.contain,
-          ),
+          child: imagePath.startsWith('http')
+              ? Image.network(
+                  imagePath,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) => const Icon(
+                    Icons.broken_image,
+                    size: 64,
+                    color: Colors.white54,
+                  ),
+                )
+              : Image.file(
+                  File(imagePath),
+                  fit: BoxFit.contain,
+                ),
         ),
       ),
     );

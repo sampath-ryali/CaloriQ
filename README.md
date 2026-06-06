@@ -735,9 +735,10 @@ Recommended `.env` in `backend/.env`:
 
 ```env
 ENABLE_QWEN=true
+QWEN_STRICT=true
 QWEN_TIMEOUT_SEC=15
 OLLAMA_BASE_URL=http://127.0.0.1:11434
-QWEN_MODEL=qwen2.5:3b
+QWEN_MODEL=qwen2.5:4b
 OCR_PRIMARY_ENGINE=easyocr
 ```
 
@@ -775,12 +776,12 @@ Backend URLs:
 
 One-time pull:
 ```powershell
-ollama pull qwen2.5:3b
+ollama pull qwen2.5:4b
 ```
 
 Optional sanity check:
 ```powershell
-ollama run qwen2.5:3b "Reply with exactly: QWEN_OK"
+ollama run qwen2.5:4b "Reply with exactly: QWEN_OK"
 ```
 
 ## 9.3 Flutter (USB)

@@ -53,6 +53,12 @@ class NutritionExtractor:
         "fat": [
             r"\b(?:total\s+)?fats?\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
         ],
+        "saturated_fat": [
+            r"\b(?:saturated\s+fat|sat\.?\s*fat)\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
+        ],
+        "trans_fat": [
+            r"\btrans\s+fat\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
+        ],
         "carbs": [
             r"\bcarb(?:ohydrate)?s?\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
         ],
@@ -65,6 +71,21 @@ class NutritionExtractor:
         ],
         "sugar": [
             r"\bsugars?\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
+        ],
+        "sugar_added": [
+            r"\b(?:added\s+sugars?|added\s+sugar)\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*g\b",
+        ],
+        "cholesterol": [
+            r"\bcholesterol\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*mg\b",
+        ],
+        "calcium": [
+            r"\bcalcium\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*mg\b",
+        ],
+        "potassium": [
+            r"\bpotassium\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*mg\b",
+        ],
+        "iron": [
+            r"\biron\b\s*(?:[:\-]|is)?\s*(\d+(?:\.\d+)?)\s*mg\b",
         ],
     }
 
@@ -214,7 +235,7 @@ def recommend_diet(data: dict[str, Any]) -> list[str]:
 def calculate_confidence(data: dict[str, Any]) -> str:
     """Calculate extraction confidence based on fields found."""
 
-    key_fields = ["calories", "protein", "fat", "carbs", "sodium"]
+    key_fields = ["calories", "protein", "fat", "carbs", "sodium", "fiber", "sugar", "cholesterol", "calcium"]
     found_fields = sum(
         1
         for field in key_fields
@@ -240,11 +261,28 @@ class QwenModel:
         self.base_url = base_url
         self.model = model
         self.endpoint = f"{base_url}/api/generate"
+        self.tags_endpoint = f"{base_url}/api/tags"
+        self.version_endpoint = f"{base_url}/api/version"
         self.request_timeout_sec = request_timeout_sec
 
-    def call(self, prompt: str, temperature: float = 0.7) -> str:
-        """Call Qwen model via Ollama API."""
+    def ensure_ready(self) -> None:
+        """Verify that Ollama is reachable and the configured model is available."""
 
+        version_response = requests.get(self.version_endpoint, timeout=self.request_timeout_sec)
+        version_response.raise_for_status()
+
+        tags_response = requests.get(self.tags_endpoint, timeout=self.request_timeout_sec)
+        tags_response.raise_for_status()
+        payload = tags_response.json()
+        models = payload.get("models", [])
+
+        if not any(str(item.get("name", "")).strip() == self.model for item in models if isinstance(item, dict)):
+            raise RuntimeError(f"Qwen model '{self.model}' is not available in Ollama")
+
+    def call(self, prompt: str, temperature: float = 0.7) -> str:
+        """Call Qwen model via Ollama API, fallback to free Hugging Face API if unavailable."""
+
+        # Try Ollama first
         try:
             response = requests.post(
                 self.endpoint,
@@ -260,15 +298,35 @@ class QwenModel:
             if response.status_code == 200:
                 result = response.json()
                 return result.get("response", "").strip()
-
-            logger.error("Ollama API error: %s", response.status_code)
-            return ""
-        except requests.exceptions.ConnectionError:
-            logger.warning("Cannot connect to Ollama at %s", self.base_url)
-            return ""
-        except Exception as exc:
-            logger.error("Error calling Qwen: %s", exc)
-            return ""
+        except Exception:
+            # Fallback to HuggingFace Inference API (Free & runs Qwen2.5)
+            logger.info("Ollama unreachable. Falling back to free HuggingFace API...")
+            try:
+                hf_url = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct"
+                headers = {"Content-Type": "application/json"}
+                # Optional API key authorization if set, otherwise works with limits
+                hf_token = os.getenv("HF_TOKEN")
+                if hf_token:
+                    headers["Authorization"] = f"Bearer {hf_token}"
+                
+                res = requests.post(
+                    hf_url,
+                    json={"inputs": prompt, "parameters": {"temperature": temperature, "max_new_tokens": 256}},
+                    headers=headers,
+                    timeout=15,
+                )
+                if res.status_code == 200:
+                    payload = res.json()
+                    if isinstance(payload, list) and len(payload) > 0:
+                        text = payload[0].get("generated_text", "")
+                        # Remove the prompt from the response if HuggingFace prepended it
+                        if prompt in text:
+                            text = text.replace(prompt, "")
+                        return text.strip()
+            except Exception as hf_exc:
+                logger.error("Hugging Face fallback failed: %s", hf_exc)
+        
+        return ""
 
 
 def answer_questions(
@@ -278,6 +336,8 @@ def answer_questions(
     qwen_model: Optional[QwenModel] = None,
 ) -> dict[str, Any]:
     """Answer questions about nutrition using rules or Qwen LLM."""
+
+    strict_qwen = os.getenv("QWEN_STRICT", "true").lower() == "true"
 
     def safe_extract(value: Any) -> float:
         if isinstance(value, (int, float)):
@@ -329,10 +389,12 @@ def answer_questions(
                 Question: {question}
                 Answer concisely:
                 """
+                if strict_qwen:
+                    qwen_model.ensure_ready()
                 qwen_answer = qwen_model.call(context)
                 answers[question] = {
                     "answer": qwen_answer if qwen_answer else "Unable to answer",
-                    "method": "qwen" if qwen_answer else "fallback",
+                    "method": "qwen" if qwen_answer else ("error" if strict_qwen else "fallback"),
                 }
             else:
                 answers[question] = {

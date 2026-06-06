@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, send_file
 from flask_jwt_extended import get_jwt_identity
 
-from services.image_service import ImageServiceError, save_uploaded_image
+from services.image_service import ImageServiceError, save_uploaded_image, get_image_path
 from utils.auth import require_jwt
 from utils.errors import ApiError
 
@@ -35,3 +35,12 @@ def upload_image(current_user):
         ),
         201,
     )
+
+
+@upload_bp.get("/images/<image_id>")
+def get_image(image_id: str):
+    try:
+        path = get_image_path(image_id)
+        return send_file(path)
+    except Exception as exc:
+        raise ApiError("Image not found", status_code=404, error_code="image_not_found") from exc

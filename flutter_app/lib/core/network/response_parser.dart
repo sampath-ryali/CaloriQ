@@ -46,9 +46,7 @@ String extractSource(Map<String, dynamic> data) {
 }
 
 String formatAssistantReply(Map<String, dynamic> data) {
-  final answer = extractReply(data);
-  final source = extractSource(data);
-  return '$answer\n\nSource: $source';
+  return extractReply(data);
 }
 
 String extractReply(Map<String, dynamic> data) {

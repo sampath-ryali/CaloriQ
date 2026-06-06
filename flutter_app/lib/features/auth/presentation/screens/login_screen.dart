@@ -48,6 +48,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       appBar: AppBar(
         title: const Text('Log in'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => context.push('/settings'),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

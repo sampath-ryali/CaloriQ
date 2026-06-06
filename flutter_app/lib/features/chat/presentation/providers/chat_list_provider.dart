@@ -83,12 +83,16 @@ class ChatListNotifier extends StateNotifier<List<Chat>> {
     final mappedMessages = rawMessages
         .whereType<Map<String, dynamic>>()
         .map(
-          (item) => Message(
-            id: (item['id'] ?? _uuid.v4()).toString(),
-            text: (item['content'] ?? '').toString(),
-            isUser: (item['role'] ?? 'assistant').toString() == 'user',
-            timestamp: DateTime.tryParse((item['created_at'] ?? '').toString()) ?? DateTime.now(),
-          ),
+          (item) {
+            final imgId = item['image_id']?.toString();
+            return Message(
+              id: (item['id'] ?? _uuid.v4()).toString(),
+              text: (item['content'] ?? '').toString(),
+              imagePath: (imgId != null && imgId.isNotEmpty) ? "${api.baseUrl}/images/$imgId" : null,
+              isUser: (item['role'] ?? 'assistant').toString() == 'user',
+              timestamp: DateTime.tryParse((item['created_at'] ?? '').toString()) ?? DateTime.now(),
+            );
+          },
         )
         .toList();
 

@@ -28,8 +28,7 @@ class ApiConfig {
       _overrideBaseUrl != null && _overrideBaseUrl!.isNotEmpty;
 
   static Future<bool> get autoDiscoverEnabled async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_autoDiscoverEnabledKey) ?? true;
+    return false;
   }
 
   static Future<void> setAutoDiscoverEnabled(bool enabled) async {
@@ -288,6 +287,7 @@ class ApiClient {
       final headers = <String, String>{
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
+        'bypass-tunnel-reminder': 'true',
       };
 
       final response = await http
@@ -327,7 +327,10 @@ class ApiClient {
 
       final response = await http.get(
         Uri.parse('$baseUrl/chats'),
-        headers: {'Authorization': 'Bearer $token'},
+        headers: {
+          'Authorization': 'Bearer $token',
+          'bypass-tunnel-reminder': 'true',
+        },
       );
 
       if (response.statusCode == 401) {
@@ -351,7 +354,10 @@ class ApiClient {
 
       final response = await http.get(
         Uri.parse('$baseUrl/chats/$chatId/messages'),
-        headers: {'Authorization': 'Bearer $token'},
+        headers: {
+          'Authorization': 'Bearer $token',
+          'bypass-tunnel-reminder': 'true',
+        },
       );
 
       if (response.statusCode == 401) {
