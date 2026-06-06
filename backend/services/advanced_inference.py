@@ -315,7 +315,7 @@ class QwenModel:
                     headers["Authorization"] = f"Bearer {hf_token}"
                 
                 for model_id in models:
-                    hf_url = f"https://api-inference.huggingface.co/models/{model_id}"
+                    hf_url = f"https://router.huggingface.co/hf-inference/models/{model_id}"
                     logger.info("Trying Hugging Face model: %s", model_id)
                     for attempt in range(3):
                         try:

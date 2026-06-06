@@ -27,7 +27,7 @@ def check_hf():
     token_present = len(token) > 0
     token_masked = f"{token[:4]}...{token[-4:]}" if len(token) > 8 else "too_short"
     
-    hf_url = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct"
+    hf_url = "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-7B-Instruct"
     headers = {
         "Content-Type": "application/json"
     }
