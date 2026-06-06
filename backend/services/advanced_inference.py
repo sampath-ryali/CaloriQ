@@ -315,23 +315,27 @@ class QwenModel:
                     headers["Authorization"] = f"Bearer {hf_token}"
                 
                 for model_id in models:
-                    hf_url = f"https://router.huggingface.co/hf-inference/models/{model_id}"
+                    hf_url = "https://router.huggingface.co/v1/chat/completions"
                     logger.info("Trying Hugging Face model: %s", model_id)
                     for attempt in range(3):
                         try:
                             res = requests.post(
                                 hf_url,
-                                json={"inputs": prompt, "parameters": {"temperature": temperature, "max_new_tokens": 256}},
+                                json={
+                                    "model": model_id,
+                                    "messages": [{"role": "user", "content": prompt}],
+                                    "temperature": temperature,
+                                    "max_tokens": 256
+                                },
                                 headers=headers,
                                 timeout=15,
                             )
                             if res.status_code == 200:
                                 payload = res.json()
-                                if isinstance(payload, list) and len(payload) > 0:
-                                    text = payload[0].get("generated_text", "")
-                                    if prompt in text:
-                                        text = text.replace(prompt, "")
-                                    return text.strip()
+                                choices = payload.get("choices", [])
+                                if choices:
+                                    content = choices[0].get("message", {}).get("content", "")
+                                    return content.strip()
                             elif res.status_code == 503:
                                 logger.info("Model %s is loading. Retrying in 3 seconds...", model_id)
                                 time.sleep(3)

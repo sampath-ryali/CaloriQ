@@ -27,7 +27,7 @@ def check_hf():
     token_present = len(token) > 0
     token_masked = f"{token[:4]}...{token[-4:]}" if len(token) > 8 else "too_short"
     
-    hf_url = "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-7B-Instruct"
+    hf_url = "https://router.huggingface.co/v1/chat/completions"
     headers = {
         "Content-Type": "application/json"
     }
@@ -38,7 +38,11 @@ def check_hf():
     try:
         res = requests.post(
             hf_url,
-            json={"inputs": "Reply with exactly: HF_OK", "parameters": {"temperature": 0.7, "max_new_tokens": 10}},
+            json={
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "messages": [{"role": "user", "content": "Reply with exactly: HF_OK"}],
+                "max_tokens": 10
+            },
             headers=headers,
             timeout=15
         )
