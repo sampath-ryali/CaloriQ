@@ -304,37 +304,43 @@ class QwenModel:
             # Fallback to HuggingFace Inference API (Free & runs Qwen2.5)
             logger.info("Ollama unreachable. Falling back to free HuggingFace API...")
             try:
-                # Using a smaller Qwen2.5 model (Qwen2.5-1.5B-Instruct or Qwen2.5-7B-Instruct) for ultra-fast, lightweight serverless loading
-                hf_url = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-7B-Instruct"
+                models = [
+                    "Qwen/Qwen2.5-7B-Instruct",
+                    "Qwen/Qwen2.5-1.5B-Instruct",
+                    "Qwen/Qwen2.5-72B-Instruct"
+                ]
                 headers = {"Content-Type": "application/json"}
-                # Free access token to bypass rate limit checks
                 hf_token = os.getenv("HF_TOKEN")
                 if hf_token:
                     headers["Authorization"] = f"Bearer {hf_token}"
                 
-                # Retry loop in case the model is loading (503 response)
-                for attempt in range(5):
-                    res = requests.post(
-                        hf_url,
-                        json={"inputs": prompt, "parameters": {"temperature": temperature, "max_new_tokens": 256}},
-                        headers=headers,
-                        timeout=25,
-                    )
-                    
-                    if res.status_code == 200:
-                        payload = res.json()
-                        if isinstance(payload, list) and len(payload) > 0:
-                            text = payload[0].get("generated_text", "")
-                            if prompt in text:
-                                text = text.replace(prompt, "")
-                            return text.strip()
-                    elif res.status_code == 503:
-                        # Model is loading, wait and retry
-                        logger.info("Hugging Face model is loading. Retrying in 4 seconds...")
-                        time.sleep(4)
-                    else:
-                        logger.error("Hugging Face API error: %s - %s", res.status_code, res.text)
-                        break
+                for model_id in models:
+                    hf_url = f"https://api-inference.huggingface.co/models/{model_id}"
+                    logger.info("Trying Hugging Face model: %s", model_id)
+                    for attempt in range(3):
+                        try:
+                            res = requests.post(
+                                hf_url,
+                                json={"inputs": prompt, "parameters": {"temperature": temperature, "max_new_tokens": 256}},
+                                headers=headers,
+                                timeout=15,
+                            )
+                            if res.status_code == 200:
+                                payload = res.json()
+                                if isinstance(payload, list) and len(payload) > 0:
+                                    text = payload[0].get("generated_text", "")
+                                    if prompt in text:
+                                        text = text.replace(prompt, "")
+                                    return text.strip()
+                            elif res.status_code == 503:
+                                logger.info("Model %s is loading. Retrying in 3 seconds...", model_id)
+                                time.sleep(3)
+                            else:
+                                logger.error("Model %s returned code %s: %s", model_id, res.status_code, res.text)
+                                break
+                        except Exception as e:
+                            logger.error("Request to model %s failed: %s", model_id, e)
+                            break
             except Exception as hf_exc:
                 logger.error("Hugging Face fallback failed: %s", hf_exc)
         
