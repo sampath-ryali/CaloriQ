@@ -382,5 +382,277 @@
     "uploaded_at": "2026-06-05T07:39:48.562880+00:00",
     "content_type": "image/jpeg",
     "user_id": "14ddf0dc-2e0b-41c5-bdfc-6567eb1045e3"
+  },
+  {
+    "image_id": "395d835cce2b45458b6a5e105e15ffd4",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\395d835cce2b45458b6a5e105e15ffd4.png",
+    "uploaded_at": "2026-06-06T00:11:56.956019+00:00",
+    "content_type": "image/png",
+    "user_id": "e1ea9b79-6d83-4e09-8e6b-65d6c9c581b6"
+  },
+  {
+    "image_id": "e43bb122cf524daa9b7fc2620b7f0e19",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\e43bb122cf524daa9b7fc2620b7f0e19.png",
+    "uploaded_at": "2026-06-06T00:13:40.200248+00:00",
+    "content_type": "image/png",
+    "user_id": "536c31dc-86b7-4860-a398-76bc48f43985"
+  },
+  {
+    "image_id": "9b0ce2da7833432dbecec1118bf3bf2d",
+    "filename": "CAP8424070924383364542.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\9b0ce2da7833432dbecec1118bf3bf2d.jpg",
+    "uploaded_at": "2026-06-06T00:15:54.530288+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "7a3a607b68bc4ac9a34bf8164243a649",
+    "filename": "CAP4275612278419391763.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\7a3a607b68bc4ac9a34bf8164243a649.jpg",
+    "uploaded_at": "2026-06-06T00:17:14.004593+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "15fe8d7c5ffb4c108b665120768a50b0",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\15fe8d7c5ffb4c108b665120768a50b0.png",
+    "uploaded_at": "2026-06-06T00:18:36.931686+00:00",
+    "content_type": "image/png",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "c9856a5554f64bd0a14182c437f2819b",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\c9856a5554f64bd0a14182c437f2819b.png",
+    "uploaded_at": "2026-06-06T00:25:32.856626+00:00",
+    "content_type": "image/png",
+    "user_id": "7f2fda55-7c54-45ab-857a-d2b0b4be79e3"
+  },
+  {
+    "image_id": "8e5d51583bfa4454b787b58cc287600d",
+    "filename": "CAP1705751964942851337.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\8e5d51583bfa4454b787b58cc287600d.jpg",
+    "uploaded_at": "2026-06-06T00:31:44.241783+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "f84a9c6603bf4729a1cc949d02968873",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\f84a9c6603bf4729a1cc949d02968873.png",
+    "uploaded_at": "2026-06-06T00:33:38.479586+00:00",
+    "content_type": "image/png",
+    "user_id": "156f7883-b3b4-4b99-9728-281e7df9da06"
+  },
+  {
+    "image_id": "d8c3c9ee4dd6413a87d3a638c8bb5df1",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\d8c3c9ee4dd6413a87d3a638c8bb5df1.png",
+    "uploaded_at": "2026-06-06T00:37:24.300010+00:00",
+    "content_type": "image/png",
+    "user_id": "82c27c19-e602-4a62-b880-a1ec916c7d87"
+  },
+  {
+    "image_id": "bbb76cd4f2bc44da86ae01a0aa70e733",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\bbb76cd4f2bc44da86ae01a0aa70e733.png",
+    "uploaded_at": "2026-06-06T00:38:12.605394+00:00",
+    "content_type": "image/png",
+    "user_id": "fa0dd5b2-11d9-44bc-a808-76b1b58af7e6"
+  },
+  {
+    "image_id": "67914153e9a6444e86d2ec3ebd49f85a",
+    "filename": "CAP8041453093428555654.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\67914153e9a6444e86d2ec3ebd49f85a.jpg",
+    "uploaded_at": "2026-06-06T00:49:47.238894+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "a6855c86a00d44bcabe72bf534821f71",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\a6855c86a00d44bcabe72bf534821f71.png",
+    "uploaded_at": "2026-06-06T00:53:56.562946+00:00",
+    "content_type": "image/png",
+    "user_id": "f27c04fb-da5f-4095-a411-578e771ebb14"
+  },
+  {
+    "image_id": "c5c22ccf06934f5b95e4f1c6b335e6ed",
+    "filename": "CAP7510690795112336960.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\c5c22ccf06934f5b95e4f1c6b335e6ed.jpg",
+    "uploaded_at": "2026-06-06T00:55:31.464005+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "af9df4ca4b8e403aa6dd015dac49a26b",
+    "filename": "CAP2401681328046854626.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\af9df4ca4b8e403aa6dd015dac49a26b.jpg",
+    "uploaded_at": "2026-06-06T00:59:46.460736+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "8be99f696d284bdd9137384d9525063a",
+    "filename": "smoke-test-label.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\8be99f696d284bdd9137384d9525063a.png",
+    "uploaded_at": "2026-06-06T01:10:28.963017+00:00",
+    "content_type": "image/png",
+    "user_id": "736f67f0-1470-4bff-b834-330c1bc57739"
+  },
+  {
+    "image_id": "09276cab45da4ca2ab4f162f790456b8",
+    "filename": "CAP5501590626857354142.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\09276cab45da4ca2ab4f162f790456b8.jpg",
+    "uploaded_at": "2026-06-06T01:22:50.222838+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "733e5f922eb842b59eec7535e84fab23",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\733e5f922eb842b59eec7535e84fab23.png",
+    "uploaded_at": "2026-06-06T01:28:06.316522+00:00",
+    "content_type": "image/png",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "91e9a122f8f6438b8a6be7ad9df72b74",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\91e9a122f8f6438b8a6be7ad9df72b74.png",
+    "uploaded_at": "2026-06-06T01:41:45.393806+00:00",
+    "content_type": "image/png",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "9da37db166094a13af161eeada68b439",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\9da37db166094a13af161eeada68b439.png",
+    "uploaded_at": "2026-06-06T01:48:56.706846+00:00",
+    "content_type": "image/png",
+    "user_id": "fbdaf632-61d2-475f-9616-b13c632ad923"
+  },
+  {
+    "image_id": "5643b714f86e426fbc0a76677c192e22",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\5643b714f86e426fbc0a76677c192e22.png",
+    "uploaded_at": "2026-06-06T02:03:59.021051+00:00",
+    "content_type": "image/png",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "7c2ab25946574a54b93ba59ebf266fdd",
+    "filename": "CAP4895599048959189019.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\7c2ab25946574a54b93ba59ebf266fdd.jpg",
+    "uploaded_at": "2026-06-06T02:06:16.847622+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "6c804e72333047deab88dc1deeb9a90f",
+    "filename": "CAP4274174968619728099.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\6c804e72333047deab88dc1deeb9a90f.jpg",
+    "uploaded_at": "2026-06-06T02:06:28.001590+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "e14e3f4d29284241ab4fe4fb86180a53",
+    "filename": "CAP7087849051678254408.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\e14e3f4d29284241ab4fe4fb86180a53.jpg",
+    "uploaded_at": "2026-06-06T02:07:02.206628+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "3ec8132628c5457aaa7d2e83c2410cb1",
+    "filename": "CAP2184918548361989532.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\3ec8132628c5457aaa7d2e83c2410cb1.jpg",
+    "uploaded_at": "2026-06-06T02:07:16.592909+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "2a32e47aead843f6b953c70014373b65",
+    "filename": "1000052723.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\2a32e47aead843f6b953c70014373b65.jpg",
+    "uploaded_at": "2026-06-06T02:09:07.199246+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "f02dac2a66c24d3a911b47349e45b99b",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\f02dac2a66c24d3a911b47349e45b99b.png",
+    "uploaded_at": "2026-06-06T02:28:30.980605+00:00",
+    "content_type": "image/png",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "7d0c7d0bd08f4af08fb743dab3a6eb00",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\7d0c7d0bd08f4af08fb743dab3a6eb00.png",
+    "uploaded_at": "2026-06-06T02:30:39.811346+00:00",
+    "content_type": "image/png",
+    "user_id": "265dcf93-4ccd-447c-a79d-f1a73152ca2d"
+  },
+  {
+    "image_id": "26bb4576e48a46388699d045b34a6029",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\26bb4576e48a46388699d045b34a6029.png",
+    "uploaded_at": "2026-06-06T05:53:02.184456+00:00",
+    "content_type": "image/png",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "8c64ef3e808f4be29fb18bf4783da111",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\8c64ef3e808f4be29fb18bf4783da111.png",
+    "uploaded_at": "2026-06-06T05:56:48.574064+00:00",
+    "content_type": "image/png",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "d3c4739741d44d4286493cb685ee69ba",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\d3c4739741d44d4286493cb685ee69ba.png",
+    "uploaded_at": "2026-06-06T05:59:40.800137+00:00",
+    "content_type": "image/png",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "83d469378cc84e5094cfc3312af7a6b9",
+    "filename": "CAP9008329133997137649.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\83d469378cc84e5094cfc3312af7a6b9.jpg",
+    "uploaded_at": "2026-06-06T06:10:27.614749+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "89ae6d042b774155b50b99122d276d5e",
+    "filename": "CAP8909825156187235663.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\89ae6d042b774155b50b99122d276d5e.jpg",
+    "uploaded_at": "2026-06-06T06:10:34.502653+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "d1d603fec9734076a27a9ac8e2832819",
+    "filename": "1000052723.jpg",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\d1d603fec9734076a27a9ac8e2832819.jpg",
+    "uploaded_at": "2026-06-06T06:11:17.638534+00:00",
+    "content_type": "image/jpeg",
+    "user_id": "72e37240-c5e8-483d-907e-5842b894be86"
+  },
+  {
+    "image_id": "12f28ce6a5414b2781e530e86b67e9d4",
+    "filename": "1000049393.png",
+    "stored_path": "C:\\Users\\SAMPATH\\OneDrive\\Desktop\\copy\\CaloriQ\\backend\\data\\images\\12f28ce6a5414b2781e530e86b67e9d4.png",
+    "uploaded_at": "2026-06-06T06:36:21.224220+00:00",
+    "content_type": "image/png",
+    "user_id": "61183248-022a-4dce-b4d3-72abb8e1e4d1"
   }
 ]
