@@ -30,7 +30,7 @@ def _clean_text(text: str) -> str:
 
 
 def _get_primary_ocr_engine() -> str:
-    engine = os.getenv("OCR_PRIMARY_ENGINE", "easyocr").strip().lower()
+    engine = os.getenv("OCR_PRIMARY_ENGINE", "pytesseract").strip().lower()
     if engine == "tesseract":
         engine = "pytesseract"
 
